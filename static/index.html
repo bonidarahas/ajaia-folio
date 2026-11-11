@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Folio — Team documents</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="brandmark">F</div><span>folio<span class="branddot">.</span></span></div>
+    <div class="workspace-label">WORKSPACE <span class="demo-pill">DEMO</span></div>
+    <label class="user-label" for="userSelect">Viewing as</label><select id="userSelect" aria-label="Switch demo user"></select>
+    <button id="newDoc" class="new-button"><span>＋</span> New document</button>
+    <div class="nav-label">LIBRARY</div>
+    <button class="nav active" data-tab="owned"><span>▤</span> My documents <span class="count" id="ownedCount">0</span></button>
+    <button class="nav" data-tab="shared"><span>♧</span> Shared with me <span class="count" id="sharedCount">0</span></button>
+    <div class="sidebar-bottom"><div class="hint-icon">✦</div><div><strong>Made for momentum</strong><small>A minimal collaborative space. Built as a product-engineering demo.</small></div></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div id="breadcrumbs" class="breadcrumbs">Workspace / My documents</div><div class="top-right"><span class="online-dot"></span> Demo workspace</div></header>
+    <div id="library" class="library">
+      <div class="page-intro"><div><p class="eyebrow">YOUR WORKSPACE</p><h1 id="pageTitle">My documents</h1><p id="pageSubtitle">Your ideas, all in one place.</p></div><button id="topNew" class="primary">＋ Create document</button></div>
+      <div class="list-bar"><strong id="listHeading">All documents</strong><label class="import-link" for="fileUpload">↑ Import .txt or .md</label><input id="fileUpload" type="file" accept=".txt,.md,text/plain,text/markdown" hidden></div>
+      <div id="docList" class="doc-list"></div>
+      <div id="empty" class="empty" hidden><div class="empty-icon">▤</div><h2>No documents yet</h2><p>Create a document or import a text file to get started.</p></div>
+    </div>
+    <div id="editorView" class="editor-view" hidden>
+      <div class="editor-top"><button id="back" class="back" aria-label="Back to library">←</button><div class="editor-title-area"><input id="docTitle" maxlength="150" placeholder="Untitled document" aria-label="Document title"><div class="doc-meta"><span id="ownerLabel"></span><span>·</span><span id="saveStatus">All changes saved</span></div></div><button id="shareBtn" class="primary">↗ Share</button></div>
+      <div class="toolbar" role="toolbar" aria-label="Text formatting"><button data-cmd="bold" title="Bold (Ctrl+B)"><strong>B</strong></button><button data-cmd="italic" title="Italic (Ctrl+I)"><em>I</em></button><button data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button><div class="separator"></div><button data-block="h1" title="Heading 1">H1</button><button data-block="h2" title="Heading 2">H2</button><button data-block="p" title="Paragraph">¶</button><div class="separator"></div><button data-cmd="insertUnorderedList" title="Bulleted list">☷</button><button data-cmd="insertOrderedList" title="Numbered list">☰</button></div>
+      <div class="paper-wrap"><div id="editor" class="paper" contenteditable="true" role="textbox" aria-multiline="true" aria-label="Document content" data-placeholder="Start writing something great..."></div></div>
+      <div class="editor-footer"><span>Formatting and edits save automatically</span><span id="wordCount">0 words</span></div>
+    </div>
+  </main>
+</div>
+<div id="overlay" class="overlay" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-top"><div><p class="eyebrow">COLLABORATION</p><h2 id="modalTitle">Share document</h2></div><button id="closeModal" aria-label="Close dialog">×</button></div><p class="modal-help">Give a teammate editing access. Switch demo users to test permissions.</p><label for="shareUser">Add a collaborator</label><div class="share-form"><select id="shareUser"></select><button id="addShare" class="primary">Share</button></div><p class="member-label">PEOPLE WITH ACCESS</p><div id="memberList"></div><button id="done" class="done">Done</button></div></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script src="/app.js" defer></script></body></html>
